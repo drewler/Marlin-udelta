@@ -90,10 +90,10 @@
 //
 // Limit Switch definitions that match the SILKSCREEN
 //
-#define X_STOP_PIN                            26  // B6
-#define Y_STOP_PIN                            27  // B7
-#define Z_STOP_PIN                            36  // E4
-//#define E_STOP_PIN                          25  // B5
+#define X_MAX_PIN                            26  // B6
+#define Y_MAX_PIN                            27  // B7
+#define Z_MAX_PIN                            36  // E4
+#define Z_MIN_PIN                            25  // B5
 
 //
 // Steppers
@@ -133,30 +133,24 @@
 //
 // Misc. Functions
 //
-#define SDSS                                  20  // B0 JP31-6
-#define CASE_LIGHT_PIN                         0  // D0 IO-14  PWM0B
+// #define SDSS                                  20  // B0 JP31-6
+// #define CASE_LIGHT_PIN                         0  // D0 IO-14  PWM0B
 
-//
-// LCD / Controller
-//
-#if BOTH(ULTRA_LCD, NEWPANEL)
+#define LCD_PINS_RS 24
+#define LCD_PINS_ENABLE 1
+#define LCD_PINS_D4 39
+#define LCD_PINS_D5 40
+#define LCD_PINS_D6 41
+#define LCD_PINS_D7 42
 
-  #define BEEPER_PIN                          -1
+#ifndef SDSUPPORT
+  // these pins are defined in the SD library if building with SD support
+  #define SCK_PIN          21
+  #define MISO_PIN         23
+  #define MOSI_PIN         22
+#endif
 
-  #if ENABLED(LCD_I2C_PANELOLU2)
-    #define BTN_EN1                            3  // D3 IO-8
-    #define BTN_EN2                            2  // D2 IO-10
-    #define BTN_ENC                           41  // F3 IO-7
-    #define SDSS                              38  // F0 IO-13 use SD card on Panelolu2
-  #endif
-
-  #define SD_DETECT_PIN                       -1
-
-#endif // HAS_SPI_LCD && NEWPANEL
-
-//
-// M3/M4/M5 - Spindle/Laser Control
-//
-#define SPINDLE_LASER_PWM_PIN                 24  // B4 IO-3 PWM2A - MUST BE HARDWARE PWM
-#define SPINDLE_LASER_ENA_PIN                 39  // F1 IO-11 - Pin should have a pullup!
-#define SPINDLE_DIR_PIN                       40  // F2 IO-9
+#define BTN_EN1       3
+#define BTN_EN2       2
+#define BTN_ENC       0
+#define SDSS          38  // F0 IO-13 use SD card on Panelolu2

@@ -815,23 +815,23 @@ void MarlinSettings::postprocess() {
     //
     // LCD Preheat settings
     //
-    {
-      _FIELD_TEST(ui_preheat_hotend_temp);
+    // {
+    //   _FIELD_TEST(ui_preheat_hotend_temp);
 
-      #if HOTENDS && HAS_LCD_MENU
-        const int16_t (&ui_preheat_hotend_temp)[2]  = ui.preheat_hotend_temp,
-                      (&ui_preheat_bed_temp)[2]     = ui.preheat_bed_temp;
-        const uint8_t (&ui_preheat_fan_speed)[2]    = ui.preheat_fan_speed;
-      #else
-        constexpr int16_t ui_preheat_hotend_temp[2] = { PREHEAT_1_TEMP_HOTEND, PREHEAT_2_TEMP_HOTEND },
-                          ui_preheat_bed_temp[2]    = { PREHEAT_1_TEMP_BED, PREHEAT_2_TEMP_BED };
-        constexpr uint8_t ui_preheat_fan_speed[2]   = { PREHEAT_1_FAN_SPEED, PREHEAT_2_FAN_SPEED };
-      #endif
+    //   #if HOTENDS && HAS_LCD_MENU
+    //     const int16_t (&ui_preheat_hotend_temp)[2]  = ui.preheat_hotend_temp,
+    //                   (&ui_preheat_bed_temp)[2]     = ui.preheat_bed_temp;
+    //     const uint8_t (&ui_preheat_fan_speed)[2]    = ui.preheat_fan_speed;
+    //   #else
+    //     constexpr int16_t ui_preheat_hotend_temp[2] = { PREHEAT_1_TEMP_HOTEND, PREHEAT_2_TEMP_HOTEND },
+    //                       ui_preheat_bed_temp[2]    = { PREHEAT_1_TEMP_BED, PREHEAT_2_TEMP_BED };
+    //     constexpr uint8_t ui_preheat_fan_speed[2]   = { PREHEAT_1_FAN_SPEED, PREHEAT_2_FAN_SPEED };
+    //   #endif
 
-      EEPROM_WRITE(ui_preheat_hotend_temp);
-      EEPROM_WRITE(ui_preheat_bed_temp);
-      EEPROM_WRITE(ui_preheat_fan_speed);
-    }
+    //   EEPROM_WRITE(ui_preheat_hotend_temp);
+    //   EEPROM_WRITE(ui_preheat_bed_temp);
+    //   EEPROM_WRITE(ui_preheat_fan_speed);
+    // }
 
     //
     // PIDTEMP
@@ -2603,14 +2603,14 @@ void MarlinSettings::reset() {
   // Preheat parameters
   //
 
-  #if HOTENDS && HAS_LCD_MENU
-    ui.preheat_hotend_temp[0] = PREHEAT_1_TEMP_HOTEND;
-    ui.preheat_hotend_temp[1] = PREHEAT_2_TEMP_HOTEND;
-    ui.preheat_bed_temp[0] = PREHEAT_1_TEMP_BED;
-    ui.preheat_bed_temp[1] = PREHEAT_2_TEMP_BED;
-    ui.preheat_fan_speed[0] = PREHEAT_1_FAN_SPEED;
-    ui.preheat_fan_speed[1] = PREHEAT_2_FAN_SPEED;
-  #endif
+  // #if HOTENDS && HAS_LCD_MENU
+  //   ui.preheat_hotend_temp[0] = PREHEAT_1_TEMP_HOTEND;
+  //   ui.preheat_hotend_temp[1] = PREHEAT_2_TEMP_HOTEND;
+  //   ui.preheat_bed_temp[0] = PREHEAT_1_TEMP_BED;
+  //   ui.preheat_bed_temp[1] = PREHEAT_2_TEMP_BED;
+  //   ui.preheat_fan_speed[0] = PREHEAT_1_FAN_SPEED;
+  //   ui.preheat_fan_speed[1] = PREHEAT_2_FAN_SPEED;
+  // #endif
 
   //
   // Hotend PID
